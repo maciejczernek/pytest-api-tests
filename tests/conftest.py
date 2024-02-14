@@ -4,7 +4,7 @@ import http
 import allure
 
 from utilities.file_op import create_report_folder, copy_allure_history, \
-    generate_report, create_response_log_folder_
+    generate_report, create_response_log_folder
 from http.client import HTTPConnection
 
 RESULTS_PATH = "../test_results/allure-results/logs"
@@ -24,7 +24,7 @@ def activate_logging(request):
 
 @pytest.fixture(scope="session", autouse=True)
 def create_log_folder():
-    create_response_log_folder_()
+    create_response_log_folder()
 
 
 def pytest_sessionfinish():

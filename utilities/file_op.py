@@ -28,7 +28,7 @@ def create_report_folder():
         os.mkdir(path)
 
 
-def create_response_log_folder_():
+def create_response_log_folder():
     path = os.path.join(RESULTS_PATH, r"allure-results/logs")
     if not os.path.isdir(path):
         os.mkdir(path)
