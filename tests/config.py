@@ -1,5 +1,7 @@
+import json
 import os
 
+import allure
 from utilities.base_file import copy_dir, create_dir
 
 
@@ -27,3 +29,15 @@ class AllureConfig:
 
     def create_response_log_folder(self):
         create_dir(self.RESPONSE_LOGS)
+
+    def attach_info(self, resp):
+        self.attach_headers(resp)
+        self.attach_json_body(resp)
+
+    @staticmethod
+    def attach_json_body(resp):
+        allure.attach(json.dumps(resp.json(), indent=4), name="response body")
+
+    @staticmethod
+    def attach_headers(resp):
+        allure.attach(json.dumps(dict(resp.headers), indent=4), name="headers")
